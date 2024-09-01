@@ -1,0 +1,107 @@
+/* 在线链接服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
+// @font-face {
+//     font-family: 'hacash_wallet';  /* Project id 4217058 */
+//     src: url('//at.alicdn.com/t/c/font_4217058_50338o02q25.woff2?t=1692763597375') format('woff2'),
+//          url('//at.alicdn.com/t/c/font_4217058_50338o02q25.woff?t=1692763597375') format('woff'),
+//          url('//at.alicdn.com/t/c/font_4217058_50338o02q25.ttf?t=1692763597375') format('truetype');
+//   }
+
+
+
+@font-face {
+    font-family: 'hacash_wallet';  /* Project id 4217058 */
+    src: url('/font/iconfont.woff2?v=1') format('woff2'),
+         url('/font/iconfont.woff?v=1') format('woff'),
+         url('/font/iconfont.ttf?v=1') format('truetype');
+  }
+
+
+
+/*
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/font/montserrat.woff2?1');
+}
+*/
+
+
+@font-face { font-family: 'Ubuntu'; font-weight: 800; src: url('/font/Ubuntu-Bold.ttf'); }
+@font-face { font-family: 'Ubuntu'; font-weight: 400; src: url('/font/Ubuntu-Regular.ttf'); }
+@font-face { font-family: 'Ubuntu'; font-weight: 300; src: url('/font/Ubuntu-Light.ttf'); }
+
+
+
+*{
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-family: 'Ubuntu' ,sans-serif, '微软雅黑';
+    list-style: none;
+    text-decoration: none;
+    outline: none;
+    font-size: 16px; 
+    font-size: 18px; 
+    color: whitesmoke;
+}
+
+html, body {
+    background: #000;
+}
+
+
+.fic {
+    font-family: 'hacash_wallet';
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+input, textarea {
+    box-sizing: border-box;//
+    -webkit-box-sizing: border-box;//
+    -moz-box-sizing: border-box;//
+}
+
+
+html, body, ol, ul{
+    margin: 0; padding: 0;
+}
+
+.clear{
+    clear: both;
+    float: none;
+}
+
+.none{
+    display: none;
+}
+
+
+/////////////////////////////////////////////////
+
+input, textarea {
+    display: block;
+    padding: 10px;
+    border: 1px solid #bbb;
+    margin: 20px 0;
+    width: 400px;
+}
+textarea {
+    width: 600px;
+    height: 100px;
+}
+button {
+    padding: 10px 15px;
+    background-color: salmon;
+    color: white;
+    font-weight: bold;
+    margin: 10px 0;
+    cursor: pointer;
+    &.blue {
+        background-color: rgb(58, 112, 211);
+    }
+    &.red {
+        background-color: rgb(211, 60, 22);
+    }
+}
+    

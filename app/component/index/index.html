@@ -1,0 +1,212 @@
+
+[:
+    var cnft = lang.useset != "en" ? ' clnfthm' : '';
+    var ind = lang.index;
+    var wlts = lang.index.wlts;
+:]
+
+
+<div id="scr" class="hide"><div class="container">
+    <div class="box [:=cnft:]">
+        <div>
+            <h1 class="ttw">[:=ind.scr[0]:]</h1>
+            <p class="desc">[:=ind.scr[1]:]</p>
+        </div>
+        <div><img class="cvimg" src="/favicon.ico" /></div>
+        <!-- <div><h1 class="ttw">FIND A HACASH WALLET</h1></div> -->
+    </div>
+</div></div>
+
+
+
+
+<a name="wallets"></a>
+<div id="wlt" class="anim"><div class="container">
+    <div class="wrap">
+        
+        <div class="item i1"><a target="_blank" class="box" href="/create">
+            <div class="li f"><h1 class="ttl cl"><i class="fic">&#xe6b3;</i> [:=wlts.create[0]:]</h1></div>
+            <div class="li"><p class="intro">[:=wlts.create[1]:]</p></div>
+            <div class="li"><p class="tip cl">[:=wlts.create[2]:]</p></div>
+            <div class="li"><button>[:=wlts.create[3]:]</button></div>
+            <div class="bgico"><i class="fic">&#xe6b3;</i></div>
+        </a></div>
+        
+        <div class="item i2"><a target="_blank" class="box" href="/web">
+            <div class="li f"><h1 class="ttl cl"><i class="fic">&#xe616;</i> [:=wlts.online[0]:]</h1></div>
+            <div class="li"><p class="intro">[:=wlts.online[1]:]</p></div>
+            <div class="li"><p class="tip cl">[:=wlts.online[2]:]</p></div>
+            <div class="li"><button>[:=wlts.online[3]:]</button></div>
+            <div class="bgico"><i class="fic">&#xe616;</i></div>
+        </a></div>
+        
+        <div class="item i3"><a target="_blank" class="box" href="https://github.com/hacash/wallet/releases">
+            <div class="li f"><h1 class="ttl cl"><i class="fic">&#xe626;</i> [:=wlts.offline[0]:]</h1></div>
+            <div class="li"><p class="intro">[:=wlts.offline[1]:]</p></div>
+            <div class="li"><p class="tip cl">[:=wlts.offline[2]:]</p></div>
+            <div class="li"><button>[:=wlts.offline[3]:]</button></div>
+            <div class="bgico"><i class="fic">&#xe626;</i></div>
+        </a></div>
+        
+        <div class="item i4"><a target="_blank" class="box" href="https://github.com/hacash/wallet/releases">
+            <div class="li f"><h1 class="ttl cl"><i class="fic">&#xe607;</i> [:=wlts.desktop[0]:]</h1></div>
+            <div class="li"><p class="intro">[:=wlts.desktop[1]:]</p></div>
+            <div class="li"><p class="tip cl">[:=wlts.desktop[2]:]</p></div>
+            <div class="li"><button>[:=wlts.desktop[3]:]</button></div>
+            <div class="bgico"><i class="fic">&#xe607;</i></div>
+        </a></div>
+        
+        <div class="item i5"><a target="_blank" class="box" href="https://github.com/hacash/cmdwallet">
+            <div class="li f"><h1 class="ttl cl"><i class="fic">&#xe600;</i> [:=wlts.cmds[0]:]</h1></div>
+            <div class="li"><p class="intro">[:=wlts.cmds[1]:]</p></div>
+            <div class="li"><p class="tip cl">[:=wlts.cmds[2]:]</p></div>
+            <div class="li"><button>[:=wlts.cmds[3]:]</button></div>
+            <div class="bgico"><i class="fic">&#xe600;</i></div>
+        </a></div>
+        
+        <div class="item i6"><a target="_blank" class="box" href="https://github.com/hacash/wallet/releases">
+            <div class="li f"><h1 class="ttl cl"><i class="fic">&#xe672;</i> [:=wlts.miner[0]:]</h1></div>
+            <div class="li"><p class="intro">[:=wlts.miner[1]:]</p></div>
+            <div class="li"><p class="tip cl">[:=wlts.miner[2]:]</p></div>
+            <div class="li"><button>[:=wlts.miner[3]:]</button></div>
+            <div class="bgico"><i class="fic">&#xe672;</i></div>
+        </a></div>
+
+    </div>
+</div></div>
+
+
+
+<a name="thrd"></a>
+<div class="pttl"><div class="container">
+    <h1 class="">[:=ind.thrd:]</h1>
+    <p class="tip">[:=ind.thrdtip:]</p>
+</div></div>
+
+<div id="thrd" class=""><div class="container"><div class="wbox">
+    <a class="item" target="_blank" href="https://hacash.com/MoneyNex">
+        <div class="left">
+            <div class="hd"><img src="/image/thrd/icos/mnic.png" /><b>MoneyNex</b></div>
+            <p class="intro">A wallet designed specifically for Hacash and Bitcoin enthusiasts.</p>
+            <div><button>Download</button></div>
+        </div>
+        <div class="right">
+            <div class="cvw">
+                <img src="/image/thrd/icos/mncv.png" />
+            </div>
+        </div>
+    </a>
+</div></div></div>
+
+
+
+
+
+<a name="tools"></a>
+<div class="pttl"><div class="container">
+    <h1 class="">[:=ind.pttl:]</h1>
+</div></div>
+
+<a name="sendtx"></a>
+<div id="sendtx" class="card">
+    <div class="container"><div class="box">
+        <h1 class="title">[:=ind.send[0]:]</h1>
+        <p class="tip">[:=ind.send[1]:]</p>
+        <textarea v-model="txbody" placeholder="txbody..."></textarea>
+        <button ref="btn" class="submit" @click="sendTx">[:=ind.send[2]:]</button>
+        <div class="result" v-if="result">
+            <p class="ok" v-if="result.ret==0">
+                [:if(cnft){:]
+                    交易发送成功！
+                [:}else{:]
+                    Transaction sent successfully! 
+                [:}:]
+                <br/><br/>TxHash: {{result.txhash}} <a target="_blank" class="ck" :href="'https://explorer.hacash.org/tx/'+result.txhash">↪</a>
+            </p>
+            <p class="err" v-if="result.err">
+                [:if(cnft){:]
+                    发送失败：
+                [:}else{:]
+                    Send failed: 
+                [:}:] 
+                {{result.err}}</p>
+        </div>
+    </div></div>
+</div>
+
+
+<a name="txstatus"></a>
+<div id="txstatus" class="card">
+    <div class="container"><div class="box">
+        <h1 class="title">[:=ind.stat[0]:]</h1>
+        <p class="tip">[:=ind.stat[1]:]</p>
+        <textarea v-model="txhash" placeholder="txhash..."></textarea>
+        <button ref="btn" class="submit" @click="statusTx">[:=ind.stat[2]:]</button>
+        <div class="result" v-if="result && result.err">
+            <p class="stat notfind" >{{result.err}}</p>
+        </div>
+        <div class="result" v-if="result && !txhash">
+            <p>TxHash: <a target="_blank" class="lk" :href="'https://explorer.hacash.org/tx/'+txhash_show">{{txhash_show}}</a></p>
+            <p :class="'stat '+result.status" style="none" >
+            
+                [:if(cnft){:]
+
+                    当前交易状态：{{ {'txpool':'交易池内等待打包','block':'交易已经打包正在挖矿','confirm':'已出块并成功确认','notfind':'区块链上不存在此交易'}[result.status] }}
+
+                [:}else{:]
+
+                    status: {{ {'txpool':'Waiting for packing in the tx pool','block':'Tx packed. Mining','confirm':'Confirm successfully','notfind':'Not find in blockchain'}[result.status] }}
+
+                [:}:] 
+            
+            </p>
+            <table v-if="result.block.height">
+                <tr><td>
+                    
+                [:if(cnft){:]
+                    区块高度:
+                [:}else{:]
+                    Block Height:
+                [:}:] 
+                
+                </td><td><a :href="'https://explorer.hacash.org/block/'+result.block.height">{{result.block.height}}</a></td></tr>
+                <tr v-if="result.confirm"><td>
+                    
+                    [:if(cnft){:]
+                        已确认区块数：
+                    [:}else{:]
+                        Confirmed Height:
+                    [:}:] 
+                
+                </td><td>{{result.confirm}}</td></tr>
+            </table>
+        </div>
+    </div></div>
+</div>
+
+
+<a name="balance"></a>
+<div id="balance" class="card">
+    <div class="container"><div class="box">
+        <h1 class="title">[:=ind.bnls[0]:]</h1>
+        <p class="tip">[:=ind.bnls[1]:]</p>
+        <textarea v-model="addrs" placeholder="[:if(cnft){:]例如：[:}else{:]Such as:[:}:]1J1kWanVB7vWS93vv2uFUYsfe4rustzGxh,19bJU8JU6AYQHZnHcLzYj6ZvP1ARVpdRJJ"></textarea>
+        <button ref="btn" class="submit" @click="getBalance">[:=ind.bnls[2]:]</button>
+        <div class="result"v-if="balances.length>0">
+            <table class="list">
+                <tr v-for="one in balances">
+                    <td class="addr">{{one.address}}</td>
+                    <td>
+                        ㄜ{{toThousands(one.hacash)}}
+                        <a target="_blank" class="ck" :href="'https://hacash.org/HAC-unit?amount='+one.hacash">?</a>
+                    </td>
+                    <td>{{toThousands(one.satoshi)}} SAT</td>
+                    <td>{{toThousands(one.diamond)}} HACD</td>
+                </tr>
+            </table>
+        </div>
+    </div></div>
+</div>
+
+
+

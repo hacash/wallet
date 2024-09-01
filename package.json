@@ -1,0 +1,15 @@
+{
+  "name": "hacash_wallet",
+  "version": "0.3.0",
+  "description": "",
+  "repository": "",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "debug": "node $NODE_DEBUG_OPTION index.js"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "koappx": "^1.1.29"
+  }
+}

@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="/favicon.ico?v=5">
+
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    [:var ttr = 'Hacash Wallet Center';:]
+    <title>[:=this.title ? (title + ' - ' + ttr) : ttr:]</title>
+
+    <!-- twitter share link -->
+    [: if(this.twitter){ :]
+    [: if(twitter.card){ :]<meta name="twitter:card" content="[:=twitter.card:]"/>[: } :]
+    [: if(twitter.title){ :]<meta name="twitter:title" content="[:=twitter.title:]"/>[: } :]
+    [: if(twitter.description){ :]<meta name="twitter:description" content="[:=twitter.description:]"/>[: } :]
+    [: if(twitter.image){ :]<meta name="twitter:image" content="[:=twitter.image:]"/>[: } :]
+    [: } :]
+
+    [: if(this.config && this.config.debug){ :]
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script><!--for debug-->
+    [: }else{ :]
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+    [: } :]
+
+    <script src="https://unpkg.com/axios@1/dist/axios.min.js"></script>
+    
+    <link href="/jscss/[:=this.page.name:].css?v=1-[:=this.page.version:]" rel="stylesheet">
+
+
+</head>
+<body>    
+    
