@@ -47,7 +47,7 @@ setTimeout(function(){
             return "No more than 20 wallet addresses."
         }
         // alert(lss)
-        apiget("/api/get_balance", {
+        apiget("/fullnode/query/balance", {
             address: lss,
         }, function(data){
             let list = data.list;
@@ -81,13 +81,19 @@ setTimeout(function(){
         if(!that.txhash){
             return alert("Please enter transaction hash.")
         }
-        apiget("/api/tx_status", {
-            txhash: that.txhash,
+        apiget("/fullnode/query/transaction", {
+            hash: that.txhash,
         }, function(data){
-            // console.log(data)
-            that.txhash_show = that.txhash+""
+            console.log(data)
+            that.txhash_show = data.hash+""
             that.txhash = ""
             that.result = data
+            that.result.stat = 'notfind'; 
+            if(that.result.block){
+                that.result.stat='confirm'
+            }else if(that.result.pending){
+                that.result.stat='pending'
+            }
         }, function(errmsg){
             // console.log(errmsg)
             that.result = {
@@ -109,9 +115,8 @@ setTimeout(function(){
         if(!that.txbody){
             return alert("Please enter transaction body.")
         }
-        apipost("/api/send_tx", {
-            txbody: that.txbody,
-        }, function(data){
+        let bodydata = hexToBytes(that.txbody);
+        apipost("/fullnode/submit/transaction", bodydata, function(data){
             that.txbody = ""
             that.result = data // 提交成功
         }, function(errmsg){

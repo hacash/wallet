@@ -123,22 +123,6 @@ exports.reqPostApi = async function (urlstr, postdata) {
 }
 
 
-exports.reqFuncOfNodeApiOperate = function(cnf, type, datas, params) {
-    // console.log(txbody)
-    let url = cnf.hcx_node_api_url + '/operate?'
-    params = params || {}
-    for(var k in params){
-        url += `${k}=${params[k]}&`
-    }
-    let contents = []
-    contents.push( Buffer.from(type, 'hex') )
-    contents.push( datas )
-    let postdata = Buffer.concat(contents)
-    // do post
-    return exports.reqPostApi(url, postdata)
-}
-
-
 exports.allowCrossAccess = function(ctx) {
     ctx.append("Access-Control-Allow-Origin","*");
     ctx.append("Access-Control-Allow-Headers", "content-type");

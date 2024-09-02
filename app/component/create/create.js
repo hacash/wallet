@@ -29,38 +29,34 @@ function createWalletRandom() {
     }
 }
 
-var vAppCreate = new Vue({
-    el: '#create',
-    data: {
-        addr: "",
-        prikey: "",
+VueCreateAppCommon("create", {
+    addr: "",
+    prikey: "",
+}, {
+    selectCopy(e) {
+        var tarelm = e.target;
+        // select
+        var selection = window.getSelection();
+        selection.removeAllRanges();
+        var range = document.createRange();
+        range.selectNodeContents(tarelm.firstChild);
+        selection.addRange(range);
+        // copy
+        document.execCommand('copy');
     },
-    methods:{
-        selectCopy: function(e) {
-            var tarelm = e.target;
-            // select
-            var selection = window.getSelection();
-            selection.removeAllRanges();
-            var range = document.createRange();
-            range.selectNodeContents(tarelm.firstChild);
-            selection.addRange(range);
-            // copy
-            document.execCommand('copy');
-        },
-        create: function(){
-            var t = this
-            if(t.addr && !confirm(walletLeaveTip2)) {
-                return
-            }
-            // 创建钱包地址
-            setTimeout(function(){
-                var addrobj = createWalletRandom()
-                t.addr = addrobj.address;
-                t.prikey = addrobj.prikeys;
-                // set
-                createdAddr = t.addr+''
-            }, 30)
+    create(){
+        var t = this
+        if(t.addr && !confirm(walletLeaveTip2)) {
+            return
         }
+        // 创建钱包地址
+        setTimeout(function(){
+            var addrobj = createWalletRandom()
+            t.addr = addrobj.address;
+            t.prikey = addrobj.prikeys;
+            // set
+            createdAddr = t.addr+''
+        }, 30)
     }
-})
+});
 // vAppCreate.create()

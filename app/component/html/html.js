@@ -117,6 +117,14 @@ function setCookie (cname, cvalue, path, exdays) {
 }
 
 
+function hexToBytes(hex) {
+    let bytes = [];
+    for (let c = 0; c < hex.length; c += 2){
+        bytes.push(parseInt(hex.substr(c, 2), 16));
+    }
+    return Uint8Array.from(bytes);
+}
+
 function tppl(tpl, data){
   var fn =  function(d) {
       var i, k = [], v = [];

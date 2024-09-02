@@ -1,6 +1,6 @@
 
 [:
-    var cnft = lang.useset != "en" ? ' clnfthm' : '';
+    var cnft = lang.useset.indexOf('zh')==0 ? ' clnfthm' : '';
     var ind = lang.index;
     var wlts = lang.index.wlts;
 :]
@@ -121,7 +121,7 @@
                 [:}else{:]
                     Transaction sent successfully! 
                 [:}:]
-                <br/><br/>TxHash: {{result.txhash}} <a target="_blank" class="ck" :href="'https://explorer.hacash.org/tx/'+result.txhash">↪</a>
+                <br/><br/>TxHash: {{result.hash}} <a target="_blank" class="ck" :href="'https://explorer.hacash.org/tx/'+result.hash">↪</a>
             </p>
             <p class="err" v-if="result.err">
                 [:if(cnft){:]
@@ -147,20 +147,20 @@
         </div>
         <div class="result" v-if="result && !txhash">
             <p>TxHash: <a target="_blank" class="lk" :href="'https://explorer.hacash.org/tx/'+txhash_show">{{txhash_show}}</a></p>
-            <p :class="'stat '+result.status" style="none" >
+            <p :class="'stat '+stat" >
             
                 [:if(cnft){:]
 
-                    当前交易状态：{{ {'txpool':'交易池内等待打包','block':'交易已经打包正在挖矿','confirm':'已出块并成功确认','notfind':'区块链上不存在此交易'}[result.status] }}
+                    当前交易状态：{{ {'pending':'交易池内等待确认','confirm':'已出块并成功确认','notfind':'区块链上不存在此交易'}[result.stat] }}
 
                 [:}else{:]
 
-                    status: {{ {'txpool':'Waiting for packing in the tx pool','block':'Tx packed. Mining','confirm':'Confirm successfully','notfind':'Not find in blockchain'}[result.status] }}
+                    status: {{ {'pending':'Waiting for packing in the tx pool','confirm':'Confirm successfully','notfind':'Not find in blockchain'}[result.stat] }}
 
                 [:}:] 
             
             </p>
-            <table v-if="result.block.height">
+            <table v-if="result.block">
                 <tr><td>
                     
                 [:if(cnft){:]
