@@ -332,12 +332,13 @@ function init_hac_transfer(API) {
 
     // set tx body
     function genTx(tx) {
+        console.log(tx)
         var a1 = tx.payment_address
         , a2 = tx.collection_address
         $cno($box2, "pay").innerText = a1
         $cno($box2, "get").innerText = a2
         $cno($box2, "amt").innerText = tx.amount
-        $cno($box2, "fee").innerText = tx.gee
+        $cno($box2, "fee").innerText = tx.fee
         $cno($box2, "txhx").innerText = tx.tx_hash
         $cno($box2, "txbody").innerText = tx.tx_body
         $box2.style.display = "block";
