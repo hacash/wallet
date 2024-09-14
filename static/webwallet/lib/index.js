@@ -13,6 +13,14 @@ function $cno(a, n) {
 }
 
 
+function hexToBytes(hex) {
+    let bytes = [];
+    for (let c = 0; c < hex.length; c += 2){
+        bytes.push(parseInt(hex.substr(c, 2), 16));
+    }
+    return Uint8Array.from(bytes);
+}
+
 function getUrlQuery(variable){
     var query = window.location.search.substring(1);
     var vars = query.split("&");
@@ -199,9 +207,10 @@ function init_hacd_transfer(API) {
         // 提交
         $btn3.classList.add("ban")
         // post
-        axios.post("/api/send_tx", {
-            txbody: txbody,
-        }).then(function(r){
+        // axios.post("/api/send_tx", {
+        //     txbody: txbody,
+        // }).then(function(r){
+        axios.post("/fullnode/submit/transaction", hexToBytes(txbody)).then(function(r){
             $btn3.classList.remove("ban")
             // console.log(r.data)
             if(r.data.ret == 0){
@@ -305,9 +314,7 @@ function init_hac_transfer(API) {
         // 提交
         $btn3.classList.add("ban")
         // post
-        axios.post("/api/send_tx", {
-            txbody: txbody,
-        }).then(function(r){
+        axios.post("/fullnode/submit/transaction", hexToBytes(txbody)).then(function(r){
             $btn3.classList.remove("ban")
             // console.log(r.data)
             if(r.data.ret == 0){
@@ -409,9 +416,7 @@ function init_sat_transfer(API) {
         // 提交
         $btn3.classList.add("ban")
         // post
-        axios.post("/api/send_tx", {
-            txbody: txbody,
-        }).then(function(r){
+        axios.post("/fullnode/submit/transaction", hexToBytes(txbody)).then(function(r){
             $btn3.classList.remove("ban")
             // console.log(r.data)
             if(r.data.ret == 0){
