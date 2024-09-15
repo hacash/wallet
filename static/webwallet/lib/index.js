@@ -13,6 +13,14 @@ function $cno(a, n) {
 }
 
 
+function hexToBytes(hex) {
+    let bytes = [];
+    for (let c = 0; c < hex.length; c += 2){
+        bytes.push(parseInt(hex.substr(c, 2), 16));
+    }
+    return Uint8Array.from(bytes);
+}
+
 function getUrlQuery(variable){
     var query = window.location.search.substring(1);
     var vars = query.split("&");
@@ -199,9 +207,10 @@ function init_hacd_transfer(API) {
         // 提交
         $btn3.classList.add("ban")
         // post
-        axios.post("/api/send_tx", {
-            txbody: txbody,
-        }).then(function(r){
+        // axios.post("/api/send_tx", {
+        //     txbody: txbody,
+        // }).then(function(r){
+        axios.post("/fullnode/submit/transaction", hexToBytes(txbody)).then(function(r){
             $btn3.classList.remove("ban")
             // console.log(r.data)
             if(r.data.ret == 0){
@@ -305,9 +314,7 @@ function init_hac_transfer(API) {
         // 提交
         $btn3.classList.add("ban")
         // post
-        axios.post("/api/send_tx", {
-            txbody: txbody,
-        }).then(function(r){
+        axios.post("/fullnode/submit/transaction", hexToBytes(txbody)).then(function(r){
             $btn3.classList.remove("ban")
             // console.log(r.data)
             if(r.data.ret == 0){
@@ -325,12 +332,13 @@ function init_hac_transfer(API) {
 
     // set tx body
     function genTx(tx) {
+        console.log(tx)
         var a1 = tx.payment_address
         , a2 = tx.collection_address
         $cno($box2, "pay").innerText = a1
         $cno($box2, "get").innerText = a2
         $cno($box2, "amt").innerText = tx.amount
-        $cno($box2, "fee").innerText = tx.gee
+        $cno($box2, "fee").innerText = tx.fee
         $cno($box2, "txhx").innerText = tx.tx_hash
         $cno($box2, "txbody").innerText = tx.tx_body
         $box2.style.display = "block";
@@ -409,9 +417,7 @@ function init_sat_transfer(API) {
         // 提交
         $btn3.classList.add("ban")
         // post
-        axios.post("/api/send_tx", {
-            txbody: txbody,
-        }).then(function(r){
+        axios.post("/fullnode/submit/transaction", hexToBytes(txbody)).then(function(r){
             $btn3.classList.remove("ban")
             // console.log(r.data)
             if(r.data.ret == 0){
