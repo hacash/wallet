@@ -6,16 +6,16 @@ global.koappx = require('../koappx')
 
 
 
-/*
-* fullnode api proxy
-*/
-require('./app/fullnode.js')
-
 
 /*
 * run
 */
-koappx.run()
+koappx.run(function(){
+
+    // fullnode api proxy
+    require('./app/fullnode.js')
+
+})
 
 
 
