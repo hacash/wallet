@@ -11,6 +11,6 @@
   "main": "index.js",
   "dependencies": {
     "koa-proxy": "^1.0.0-alpha.3",
-    "koappx": "^1.1.33"
+    "koappx": "^1.1.35"
   }
 }
