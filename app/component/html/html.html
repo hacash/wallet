@@ -24,10 +24,10 @@
     [: if(this.config && this.config.debug){ :]
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script><!--for debug-->
     [: }else{ :]
-    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+    <script src="/jslib/vue.min.js"></script>
     [: } :]
 
-    <script src="https://unpkg.com/axios@1/dist/axios.min.js"></script>
+    <script src="/jslib/axios.min.js"></script>
     
     <link href="/jscss/[:=this.page.name:].css?v=1-[:=this.page.version:]" rel="stylesheet">
 
